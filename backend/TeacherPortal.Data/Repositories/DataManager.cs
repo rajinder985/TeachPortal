@@ -1,6 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using TeacherPortal.Data.Repositories.Interfaces;
+﻿using TeacherPortal.Data.Repositories.Interfaces;
 
 namespace TeacherPortal.Data.Repositories
 {
