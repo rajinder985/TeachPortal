@@ -4,7 +4,7 @@ namespace TeacherPortal.Services.Interfaces
 {
     public interface IAuthService
     {
-        Task<AuthResponseDto> RegisterAsync(RegisterDto model);
+        Task<TeacherDto> RegisterAsync(RegisterDto model);
         Task<AuthResponseDto> LoginAsync(LoginDto model);
     }
 }

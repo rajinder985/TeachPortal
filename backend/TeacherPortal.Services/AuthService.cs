@@ -31,7 +31,7 @@ namespace TeacherPortal.Services
             _dataManager = dataManager;
         }
 
-        public async Task<AuthResponseDto> RegisterAsync(RegisterDto model)
+        public async Task<TeacherDto> RegisterAsync(RegisterDto model)
         {
             // Checking if user exists
             if (await _userManager.FindByNameAsync(model.UserName) != null)
@@ -53,18 +53,11 @@ namespace TeacherPortal.Services
             if (!result.Succeeded)
                 throw new ArgumentException(string.Join(", ", result.Errors.Select(e => e.Description)));
 
-            var token = GenerateJwtToken(teacher);
-
             // Update last login
             await _dataManager.Teachers.UpdateLastLoginAsync(teacher.Id);
             await _dataManager.SaveChangesAsync();
 
-            return new AuthResponseDto
-            {
-                Token = token,
-                ExpiresAt = DateTime.UtcNow.AddHours(24),
-                Teacher = _mapper.Map<TeacherDto>(teacher)
-            };
+            return _mapper.Map<TeacherDto>(teacher);
         }
 
         public async Task<AuthResponseDto> LoginAsync(LoginDto model)

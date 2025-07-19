@@ -16,12 +16,12 @@ namespace TeacherPortal.API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<AuthResponseDto>> Register(RegisterDto model)
+        public async Task<ActionResult<TeacherDto>> Register(RegisterDto model)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var result = await _authService.RegisterAsync(model);//TODO Validate response and filter if needed
+            var result = await _authService.RegisterAsync(model);
             return Ok(result);
         }
 
