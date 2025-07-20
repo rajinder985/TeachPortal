@@ -29,7 +29,7 @@ namespace TeacherPortal.Data.DTOs
         public string TeacherName { get; set; } = string.Empty;
     }
 
-    //TODO Update this to use more generic approach
+
     public class PagedResult<T>
     {
         public List<T> Items { get; set; } = new();
