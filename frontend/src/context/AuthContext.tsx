@@ -56,7 +56,8 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       const response = await apiService.login(credentials);
       
       localStorage.setItem('token', response.token);
-      setUser(response.teacher);
+      const freshUserData = await apiService.getCurrentTeacher();//Setting fresh data as My Students were showing 0 when login for the first time.
+      setUser(freshUserData);
       navigate('/dashboard');
     } catch (error) {
       throw error;
