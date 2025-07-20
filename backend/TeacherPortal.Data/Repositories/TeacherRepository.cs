@@ -26,5 +26,11 @@ namespace TeacherPortal.Data.Repositories
                 _context.Entry(teacher).State = EntityState.Modified;
             }
         }
+
+        public async Task<Teacher?> GetTeacherWithStudentsAsync(string teacherId)
+        {
+            return await _dbSet.Include(t => t.Students)
+                              .FirstOrDefaultAsync(t => t.Id == teacherId);
+        }
     }
 }

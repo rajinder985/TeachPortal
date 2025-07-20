@@ -65,7 +65,7 @@ const Dashboard: React.FC = () => {
           Welcome back, {user?.firstName}!
         </Typography>
         <Typography variant="body1" color="text.secondary">
-          Here's your teaching portal overview
+          Teaching Portal Overview
         </Typography>
       </Box>
 

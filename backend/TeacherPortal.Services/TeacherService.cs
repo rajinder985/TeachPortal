@@ -24,7 +24,7 @@ namespace TeacherPortal.Services
 
         public async Task<TeacherDto?> GetCurrentTeacherAsync(string teacherId)
         {
-            var teacher = await _dataManager.Teachers.GetByIdAsync(teacherId);
+            var teacher = await _dataManager.Teachers.GetTeacherWithStudentsAsync(teacherId);
             return teacher != null ? _mapper.Map<TeacherDto>(teacher) : null;
         }
     }
