@@ -35,6 +35,11 @@ namespace TeacherPortal.API.Middleware
 
             switch (exception)
             {
+                case ArgumentException ex:
+                    response.Message = ex.Message;
+                    response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                    break;
                 case UnauthorizedAccessException ex:
                     response.Message = ex.Message;
                     response.StatusCode = (int)HttpStatusCode.Unauthorized;

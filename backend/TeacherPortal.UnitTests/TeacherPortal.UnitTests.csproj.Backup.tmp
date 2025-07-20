@@ -22,4 +22,8 @@
     <ProjectReference Include="..\TeacherPortal.API\TeacherPortal.API.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
 </Project>
